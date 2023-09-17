@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\UsernameValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class LoginUserRequest extends FormRequest
@@ -17,7 +18,7 @@ class LoginUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'username' => ['required', 'string', 'email'],
+            'username' => ['required', 'string', new UsernameValidationRule()],
             'password' => ['required', 'string', 'min:6']
         ];
     }

@@ -6,8 +6,13 @@ use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Support\Facades\Validator;
 
-class UsernameValidationRule implements Rule
+class UsernameValidationRule implements ValidationRule
 {
+    public function validate(string $attribute, mixed $value, Closure $fail): void
+    {
+        // TODO: Implement validate() method.
+    }
+
     public function passes($attribute, $value)
     {
         // Check if the value is a valid email or phone number
@@ -29,4 +34,6 @@ class UsernameValidationRule implements Rule
     {
         return 'The username must be a valid email or phone number.';
     }
+
+
 }
